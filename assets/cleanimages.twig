@@ -1,0 +1,24 @@
+{% extends "_base/_page-nav.twig" %}
+
+{% block page_title %}
+{{ __('Image Cleanup') }}
+{% endblock page_title %}
+
+{% block page_subtitle %}
+{{ __('Cleaning up images in Bolt since 2015.') }}
+{% endblock page_subtitle %}
+
+{% block page_main %}
+
+Images in Contenttypes: {{ images.contenttypes|length }}<br>
+Images in Filesystem: {{ images.filesystem|length }}<br>
+Unused Images: {{ images.unused|length }}<br>
+Unused Missing: {{ images.missing|length }}<br>
+
+<h1>Unused</h1>
+{{ images.unused|join(' ') }}
+
+<h1>Missing</h1>
+{{ images.missing|join(' ') }}
+
+{% endblock page_main %}
